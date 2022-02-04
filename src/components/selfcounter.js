@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import {Myp} from "./styles"
 const Selfcounter = () => {
@@ -15,20 +13,12 @@ return () => clearTimeout(timer);
 if (counter.current > 0){
 counter.current -= 0;
 const timer = setTimeout(() => setState({ num: state.num - 1 }), 1000);
-
 }
-
-// if (state.num =0) { 
-
-// }
-
 }, [state]);
-
 return (
 <div>
 <Myp>{state.num}</Myp>
 </div>
 );
 };
-
 export default Selfcounter;

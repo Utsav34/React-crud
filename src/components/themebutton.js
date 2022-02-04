@@ -1,5 +1,5 @@
-import ThemeContext, { themes } from "../page/themecontext";
 import { useContext, useState } from "react";
+import ThemeContext, { themes } from "../page/themecontext";
 const ThemeButton = () => {
     const { theme, setTheme } = useContext(ThemeContext)
 

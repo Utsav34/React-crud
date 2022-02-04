@@ -1,5 +1,4 @@
 import React from "react";
-
 function CounterTime() {
     const [Counter, setCounter] = React.useState(0);
     React.useEffect(() => {
@@ -9,12 +8,10 @@ function CounterTime() {
       return () => {
         clearInterval(timer);
       };
-
     },); 
-
     return (
       <>Count: {Counter}</>
     );
   }
- 
+
   export default CounterTime;

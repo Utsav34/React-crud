@@ -1,35 +1,39 @@
-import { DashAnchor,Ul,Li } from "../components/styles";
-import {Nav, NavDropdown} from 'react-bootstrap'
-import ThemeButton from "../components/themebutton"
-import ThemeContext from "../page/themecontext"
-import { useContext } from "react"
-
-// import {useNavigate} from "react-router";
-// import { ThemeContext } from "@mui/styled-engine";
-
-const Header = () =>{    
-const removeSession=()=>{
-    localStorage.removeItem("getToken")
-}
-const themes = useContext(ThemeContext);
-    return(
-        <div style={themes.theme}>
-            <Ul>   
-                {/* <Li><a href="./Login">Login</a></Li> */}
-                <Li><a href="./Dashboard">Dashboard</a></Li>
-                <Li><a href="./Contact" >Contact</a></Li>
-                <Li><a href="/aboutUs">About us</a></Li>
-                {/* <Li><a href="./LoginProfile">logindata</a></Li> */}  
-                {/* <Li><a href="/signup">Signup</a></Li>
-                <Li><a href="./loginup">Loginup</a></Li> */}
-                <Li><a href="./modal">Modal</a></Li>
-                <Li><a href="/" onClick={removeSession} >Logout</a></Li>
-            </Ul>
-   
-
-         {/* </ThemeContext.Provider> */}
-        </div>
-    )
-}
-
+import * as React from 'react';
+import {Nav, NavLink, NavMenu, NavBtn, NavBtnLink } from '../components/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Container from '@mui/material/Container';
+const Header = () => {
+      const removeSession=()=>{
+      localStorage.removeItem("getToken")
+  }
+  // const themes = useContext(ThemeContext);
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+        <Nav>
+                <NavMenu>
+                     <NavLink to='/Dashboard' activeStyle>
+                       Dashboard
+                      </NavLink>
+                      <NavLink to='/Contact' activeStyle>
+                        Contact
+                      </NavLink>
+                     <NavLink to='/aboutUs' activeStyle>
+                       About Us
+                     </NavLink>
+                     <NavLink to='/Modal' activeStyle>
+                       Modal
+                     </NavLink>
+                   </NavMenu>
+                    <NavBtn>
+                      <NavBtnLink to="/" onClick={removeSession} >Logout</NavBtnLink>
+                    </NavBtn>
+                  </Nav>  
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
 export default Header;
